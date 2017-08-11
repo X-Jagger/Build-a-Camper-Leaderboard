@@ -1,17 +1,63 @@
 .App {
-  text-align: center;
-  font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
-  
+  background-color: gray;
 }
-table,tr,td{
+th,tr,td{
   border: 1px solid silver;
   padding:4px;
 }
 table{
-  width:50%;
-  margin-left:25%;
+  	width:70%;
+  	/*margin-top: 30px;*/
+	margin:0 auto;
   border-collapse: collapse;
 }
-.tfoot{
-  text-align: center;
+
+img{
+	width:30px;
+	height:30px;
+	border:2px solid green;
+}
+.text-center{
+	text-align: center;
+}
+caption {
+	background-color: green;
+	font:2em bolder;
+	color:white;
+}
+.points{
+	color:green;
+	text-decoration: underline;
+	cursor:pointer;
+}
+th{
+	background-color:#e7e8e9;
+	padding: 15px;
+}
+.caper-name{
+	text-align: left;
+	padding:15px;
+}
+footer{
+	background-color: green;
+	text-align: center;
+	padding: 10px;
+	margin-top:10px;
+	font:2.5em;
+	color:white;
+}
+a{
+	color:white;
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: underline;
+}
+.header{
+	background-color: green;
+	color:white;
+	font-size:3em;
+	margin-bottom: 20px;
+	cursor: pointer;
+	text-decoration: none;
 }

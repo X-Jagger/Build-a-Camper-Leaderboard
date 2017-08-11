@@ -43,11 +43,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+      <Header></Header>
        <Table 
        results={this.state.results}
         fetch30DaysStories = {this.fetch30DaysStories}
         fetchAllDaysStories ={this.fetchAllDaysStories}
-       ></Table>  
+       ></Table> 
+       <Footer></Footer> 
       </div>
     );
   }
@@ -79,23 +81,27 @@ class Table extends Component {
       });
 
     return (
-      <table className="table">
+      <table >
       <caption>Leaderboard</caption>
         <thead>
           <tr>
             <th>#</th>
-            <th>Caper Name</th>
-            <th onClick={() => fetch30DaysStories()}>Points in past 30 days</th>
-            <th onClick={() => fetchAllDaysStories()}>All time points</th>
+            <th className="caper-name">Caper Name</th>
+            <th 
+            className="points" 
+            onClick={() => fetch30DaysStories()}>
+            Points in past 30 days</th>
+            <th 
+            className="points" 
+            onClick={() => fetchAllDaysStories()}>
+            All time points</th>
           </tr>
         </thead>
         <tbody>
           {storiesRows}
         </tbody>
-        <tfoot className="tfoot">
-          By X-Jagger
-        </tfoot>
       </table>
+
     )
   }
 }
@@ -107,16 +113,35 @@ class StoriesRow extends Component {
       result,
       index
     } = this.props;
+    let storiesColor = '#e7e8e9';
+    if (!(index % 2)) {
+      storiesColor = "white"
+    }
     return (
-      <tr>
-            <td>{index}</td>
-            <td>{result.username}</td>
-            <td>{result.recent}</td>
-    <td>{result.alltime}</td>
+      <tr style={{backgroundColor:storiesColor}}>
+            <td className="text-center">{index+1}</td>
+            <td className="caper-name"><img src={result.img} alt={result.username}/>{result.username}</td>
+            <td className="text-center">{result.recent}</td>
+    <td className="text-center">{result.alltime}</td>
           </tr>
     )
   }
 }
+const Footer = () => (
+
+  <footer>
+   <div className="footer">
+      ***By<a href="https://github.com/X-Jagger">@X-Jagger</a> ***
+  </div>
+
+  </footer>
+
+)
+const Header = () => (
+  <div className="header">
+   <a src="https://www.freecodecamp.com"> freeCodeCamp</a>
+  </div>
+)
 
 
 export default App;
